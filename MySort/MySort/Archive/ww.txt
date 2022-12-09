@@ -1,0 +1,166 @@
+#include <iostream>
+
+constexpr int kThreshold = 0;
+
+template<typename T>
+void Swap(T* a, T* b) // для реализации move-семантики
+{
+    T temp(std::move(*a));
+    *a = std::move(*b);
+    *b = std::move(temp);
+}
+
+// найдем опорный элемент для QuickSort, медиана первого, среднего и последнего элемента сортируемого интервала
+template<typename T, typename Compare>
+T PivotCalc(T* first, T* last, Compare comp) 
+{   
+    T* middle = first + (last - first) / 2;
+    
+    if ((comp(*first, *last) && comp(*middle, *first)) || (comp(*first, *middle) && comp(*last, *first)))
+    {
+        return *first;
+    }
+    else if ((comp(*last, *first) && comp(*middle, *last)) || (comp(*last, *middle) && comp(*first, *last)))
+    {
+        return *last;
+    }
+    else
+    {
+        return *middle;
+    }
+}
+
+// Сортировка вставками
+template<typename T, typename Compare>
+void InsertionSort(T* first, T* last, Compare comp)
+{
+    for (T* i = first + 1; i < last; i++)
+    {
+        T* j = i - 1;
+        T key = std::move(*i);
+
+        while (j >= first && comp(key, *j))
+        {
+            *(j + 1) = std::move(*j);
+            --j;
+        }
+
+        *(j + 1) = std::move(key);
+    }
+}
+
+// Разбиение Хоара на две части относительно pivot
+template<typename T, typename Compare>
+T* HoarePartition(T* first, T* last, Compare comp) {
+
+    T pivot = std::move(PivotCalc(first, last, comp));
+
+    T* i = first;
+    T* j = last - 1;
+
+    while (i < j)
+    {
+        while (comp(*i, pivot))
+        {
+            ++i;
+        }
+        while (comp(pivot, *j))
+        {
+            --j;
+        }
+
+        if (*i == *j)
+        {
+           ++i;
+        }
+        else 
+        {
+           Swap(i, j);
+        }
+        
+    }
+
+    return j;
+}
+
+// Быстрая сортировка на основе разделения Хоара
+template<typename T, typename Compare>
+void QuickSort(T* first, T* last, Compare comp)
+{
+    while (last - first > 0)
+    {       
+        T* pivot = HoarePartition (first, last, comp);
+       
+        if (pivot - first < last - pivot + 1) 
+        {
+            QuickSort(first, pivot, comp);
+            first = pivot + 1;
+        }
+        else 
+        {
+            QuickSort (pivot + 1, last, comp);
+            last = pivot;
+        }
+    }
+}
+
+// Оптимизированная сортировка, если больше порога, то быстрая сортировка, если меньше порога - вставками.
+template<typename T, typename Compare>
+void sort(T* first, T* last, Compare comp)
+{
+    while (last - first > kThreshold)
+    {
+        T* pivot = HoarePartition(first, last, comp);
+
+        if (pivot - first < last - pivot + 1) // меньшую часть сортируем рекурсивно, а большую часть сортируем итеративно
+        {
+            sort (first, pivot, comp);
+            first = pivot + 1; // исключение хвостовой рекурсии?????????????????
+        }
+        else
+        {
+            sort (pivot + 1, last, comp);
+            last = pivot; // исключение хвостовой рекурсии?????????????????
+        }
+    }
+
+    InsertionSort(first, last, comp); //если меньше порога, т.к. вставка работает быстрее за счет экономии на вспомогательных действиях небольших наборов данных
+}
+
+template<typename T>
+void PrintArray(T* first, T* last)
+{
+    for (auto i = first; i < last; ++i)
+    {
+        std::cout << *i << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+int main()
+{
+    int arr[10] = { 10,9,8,7,6,5,4,3,2,1 };
+
+    PrintArray(arr, arr + 10);
+
+    //InsertionSort(arr, arr + 10, [](int a, int b) {return a < b; });
+
+    //QuickSort(arr, arr + 10, [](int a, int b) {return a < b; });
+    sort(arr, arr + 10, [](int a, int b) {return a < b; });
+
+    PrintArray(arr, arr + 10);
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+
+   /* int arr_sec[7] = { 65,2,45,14,9,30,34 };
+
+    std::cout << PivotCalc (arr_sec, arr_sec+6, [](int a, int b) {return a < b; });*/
+
+
+    // вызвать функцию 100 раз замер времени и получить усредненное время исполнения для точности. Вставку - массив по убыванию, Быстрая - рэндом массив.
+
+
+}
