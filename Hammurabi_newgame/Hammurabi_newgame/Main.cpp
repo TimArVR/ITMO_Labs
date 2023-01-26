@@ -29,39 +29,39 @@ struct Current_Round_Data
 
 void Start_Round_Info(City& City, Current_Round_Data& Current_Round_Data, float& rand_for_rats, int& price_for_1_acre, int& quantity_of_wheat_from_1_acre)
 {
-	std::cout << "\nÕ¿—“”œ»À ÕŒ¬€… √Œƒ “¬Œ≈√Œ œ–¿¬À≈Õ»ﬂ!\nÃÓÈ ÔÓ‚ÂÎËÚÂÎ¸, ÒÓËÁ‚ÓÎ¸ ÔÓ‚Â‰‡Ú¸ ÚÂ·Â ‚ „Ó‰Û " 
-		<< Current_Round_Data.current_round << " Ú‚ÓÂ„Ó ‚˚ÒÓ˜‡È¯Â„Ó Ô‡‚ÎÂÌËˇ\n";
+	std::cout << "\n–ù–ê–°–¢–£–ü–ò–õ –ù–û–í–´–ô –ì–û–î –¢–í–û–ï–ì–û –ü–†–ê–í–õ–ï–ù–ò–Ø!\n–ú–æ–π –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, —Å–æ–∏–∑–≤–æ–ª—å –ø–æ–≤–µ–¥–∞—Ç—å —Ç–µ–±–µ –≤ –≥–æ–¥—É " 
+		<< Current_Round_Data.current_round << " —Ç–≤–æ–µ–≥–æ –≤—ã—Å–æ—á–∞–π—à–µ–≥–æ –ø—Ä–∞–≤–ª–µ–Ω–∏—è\n";
 	if (Current_Round_Data.number_of_dead != 0)
 	{
-		std::cout << Current_Round_Data.number_of_dead << " ˜ÂÎÓ‚ÂÍ ÛÏÂÎË Ò „ÓÎÓ‰Û, Ë \n";
+		std::cout << Current_Round_Data.number_of_dead << " —á–µ–ª–æ–≤–µ–∫ —É–º–µ—Ä–ª–∏ —Å –≥–æ–ª–æ–¥—É, –∏ \n";
 	}
 	if (Current_Round_Data.number_of_newbies_in_the_city != 0)
 	{
 		std::cout << Current_Round_Data.number_of_newbies_in_the_city 
-			<< " ˜ÂÎÓ‚ÂÍ ÔË·˚ÎË ‚ Ì‡¯ ‚ÂÎËÍËÈ „ÓÓ‰;\n";
+			<< " —á–µ–ª–æ–≤–µ–∫ –ø—Ä–∏–±—ã–ª–∏ –≤ –Ω–∞—à –≤–µ–ª–∏–∫–∏–π –≥–æ—Ä–æ–¥;\n";
 	}
 	if (Current_Round_Data.is_plague)
 	{
-		std::cout << "◊ÛÏ‡ ÛÌË˜ÚÓÊËÎ‡ ÔÓÎÓ‚ËÌÛ Ì‡ÒÂÎÂÌËˇ;\n";
+		std::cout << "–ß—É–º–∞ —É–Ω–∏—á—Ç–æ–∂–∏–ª–∞ –ø–æ–ª–æ–≤–∏–Ω—É –Ω–∞—Å–µ–ª–µ–Ω–∏—è;\n";
 	}
 	else
 	{
-		std::cout << "◊ÛÏ˚ ÌÂ ·˚ÎÓ;\n";
+		std::cout << "–ß—É–º—ã –Ω–µ –±—ã–ª–æ;\n";
 	}
-	std::cout << "Õ‡ÒÂÎÂÌËÂ „ÓÓ‰‡ ÒÂÈ˜‡Ò ÒÓÒÚ‡‚ÎˇÂÚ " << City.citizens << " ˜ÂÎÓ‚ÂÍ;\n";
-	std::cout << "Ã˚ ÒÓ·‡ÎË " << Current_Round_Data.total_wheat_taked << " ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚, ÔÓ " 
-		<< quantity_of_wheat_from_1_acre << " ·Û¯ÂÎˇ Ò ‡Í‡;\n";
-	std::cout << " ˚Ò˚ ËÒÚÂ·ËÎË " << static_cast<int>(City.wheat * rand_for_rats) << " ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚, ÓÒÚ‡‚Ë‚ " 
-		<< City.wheat << " ·Û¯ÂÎˇ ‚ ‡Ï·‡‡ı;\n";
-	std::cout << "√ÓÓ‰ ÒÂÈ˜‡Ò Á‡ÌËÏ‡ÂÚ " << City.area << " ‡ÍÓ‚;\n";
-	std::cout << "1 ‡Í ÁÂÏÎË ÒÚÓËÚ ÒÂÈ˜‡Ò " << price_for_1_acre << " ·Û¯ÂÎÂÈ.\n";
+	std::cout << "–ù–∞—Å–µ–ª–µ–Ω–∏–µ –≥–æ—Ä–æ–¥–∞ —Å–µ–π—á–∞—Å —Å–æ—Å—Ç–∞–≤–ª—è–µ—Ç " << City.citizens << " —á–µ–ª–æ–≤–µ–∫;\n";
+	std::cout << "–ú—ã —Å–æ–±—Ä–∞–ª–∏ " << Current_Round_Data.total_wheat_taked << " –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã, –ø–æ "
+		<< quantity_of_wheat_from_1_acre << " –±—É—à–µ–ª—è —Å –∞–∫—Ä–∞;\n";
+	std::cout << "–ö—Ä—ã—Å—ã –∏—Å—Ç—Ä–µ–±–∏–ª–∏ " << static_cast<int>(City.wheat * rand_for_rats) << " –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã, –æ—Å—Ç–∞–≤–∏–≤ "
+		<< City.wheat << " –±—É—à–µ–ª—è –≤ –∞–º–±–∞—Ä–∞—Ö;\n";
+	std::cout << "–ì–æ—Ä–æ–¥ —Å–µ–π—á–∞—Å –∑–∞–Ω–∏–º–∞–µ—Ç " << City.area << " –∞–∫—Ä–æ–≤;\n";
+	std::cout << "1 –∞–∫—Ä –∑–µ–º–ª–∏ —Å—Ç–æ–∏—Ç —Å–µ–π—á–∞—Å " << price_for_1_acre << " –±—É—à–µ–ª–µ–π.\n";
 
 }
 
 void Round_Calculating(City& City, Current_Round_Data& Current_Round_Data, int& price_for_1_acre, int& quantity_of_wheat_from_1_acre, float& rand_for_rats, int& area_to_plant_by_gamer, float& proportion_of_deads, int& probability_of_plague, int& area_to_bue_by_gamer, int& wheat_to_eat_by_gamer)
 {
 	quantity_of_wheat_from_1_acre = rand() % 6 + 1;
-	rand_for_rats =static_cast<float> (0.01 * (rand() % 8));
+	rand_for_rats = static_cast<float> (0.01 * (rand() % 8));
 
 	Current_Round_Data.total_wheat_taked = area_to_plant_by_gamer * quantity_of_wheat_from_1_acre;
 	City.wheat = City.wheat + Current_Round_Data.total_wheat_taked;
@@ -91,6 +91,7 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+
 	srand(static_cast<unsigned int>(time(NULL)));
 
 	City City;
@@ -102,7 +103,7 @@ int main()
 	float rand_for_rats = 0;
 	float proportion_of_deads = 0;
 	float avg_deads = 0;
-	
+
 	int area_to_bue_by_gamer = 0;
 	int area_to_sell_by_gamer = 0;
 	int wheat_to_eat_by_gamer = 0;
@@ -111,30 +112,30 @@ int main()
 	bool isProportionWorked = false;
 	bool save_and_exit = false;
 	bool flag_for_exitgame = true;
-	bool flag_for_savegame=true;
+	bool flag_for_savegame = true;
 
 	while (flag_for_savegame)
 	{
-		std::cout << "’ÓÚËÚÂ Á‡„ÛÁËÚ¸ ‡ÌÂÂ ÒÓı‡Ì∏ÌÌÛ˛ Ë„Û? \n‰‡ - ‚˚ ÔÓ‰ÓÎÊËÚÂ Ë„‡Ú¸ Ò ÒÓı‡ÌÂÌÌÓ„Ó ‡ÛÌ‰‡\nÌÂÚ - Ì‡˜ÌÂÚÒˇ ÌÓ‚‡ˇ Ë„‡\n";
-		std::string yes_no = "‰‡";
+		std::cout << "–•–æ—Ç–∏—Ç–µ –∑–∞–≥—Ä—É–∑–∏—Ç—å —Ä–∞–Ω–µ–µ —Å–æ—Ö—Ä–∞–Ω—ë–Ω–Ω—É—é –∏–≥—Ä—É? \n–¥–∞ - –≤—ã –ø—Ä–æ–¥–æ–ª–∂–∏—Ç–µ –∏–≥—Ä–∞—Ç—å —Å —Å–æ—Ö—Ä–∞–Ω–µ–Ω–Ω–æ–≥–æ —Ä–∞—É–Ω–¥–∞\n–Ω–µ—Ç - –Ω–∞—á–Ω–µ—Ç—Å—è –Ω–æ–≤–∞—è –∏–≥—Ä–∞\n";
+		std::string yes_no = "–¥–∞";
 		std::cin >> yes_no;
-		if (yes_no == "ÌÂÚ") 
+		if (yes_no == "–Ω–µ—Ç")
 		{
 			flag_for_savegame = false;
 			break;
 		}
-		else if (yes_no == "‰‡") 
+		else if (yes_no == "–¥–∞")
 		{
 			std::ifstream filein("savegame.txt");
 
-			if (!filein.is_open()) 
+			if (!filein.is_open())
 			{
-				std::cout << "Œ¯Ë·Í‡ Ó·‡˘ÂÌËˇ Í ÒÓı‡Ì∏ÌÌ˚Ï ‰‡ÌÌ˚Ï!";
+				std::cout << "–û—à–∏–±–∫–∞ –æ–±—Ä–∞—â–µ–Ω–∏—è –∫ —Å–æ—Ö—Ä–∞–Ω—ë–Ω–Ω—ã–º –¥–∞–Ω–Ω—ã–º!";
 				flag_for_savegame = false;
 
 				break;
 			}
-			else 
+			else
 			{
 				filein >> City.area >> City.citizens >> City.citizens_survived
 					>> City.wheat >> Current_Round_Data.current_round
@@ -142,19 +143,19 @@ int main()
 					>> Current_Round_Data.number_of_newbies_in_the_city
 					>> Current_Round_Data.total_wheat_taked >> Current_Round_Data.wheat_eated_by_rats
 					>> price_for_1_acre >> quantity_of_wheat_from_1_acre
-					>> avg_deads>> rand_for_rats;
+					>> avg_deads >> rand_for_rats;
 
 				filein.close();
 
 				++Current_Round_Data.current_round;
-				std::cout<<"\nCÓı‡ÌÂÌÌ‡ˇ Ë„‡ Á‡„ÛÊÂÌ‡:\n";
+				std::cout << "\nC–æ—Ö—Ä–∞–Ω–µ–Ω–Ω–∞—è –∏–≥—Ä–∞ –∑–∞–≥—Ä—É–∂–µ–Ω–∞:\n";
 				Start_Round_Info(City, Current_Round_Data, rand_for_rats, price_for_1_acre, quantity_of_wheat_from_1_acre);
 				flag_for_savegame = false;
 
 				break;
-			}					
+			}
 		}
-		if (flag_for_savegame==false) 
+		if (flag_for_savegame == false)
 		{
 			break;
 		}
@@ -162,24 +163,24 @@ int main()
 
 	if (Current_Round_Data.current_round == 1)
 	{
-		std::cout << "\n»„‡ Hammurabi Ì‡˜‡Î‡Ò¸!\n›ÚÓ ‚‡¯ 1 „Ó‰ Ô‡‚ÎÂÌËˇ!\n¬ „ÓÓ‰Â ÔÓÊË‚‡ÂÚ 100 ˜ÂÎÓ‚ÂÍ.\n¬ Á‡ÍÓÏ‡ı „ÓÓ‰‡ 2800 ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚.\n√ÓÓ‰ Á‡ÌËÏ‡ÂÚ 1000 ‡ÍÓ‚ ÁÂÏÎË.\n\n\n";
+		std::cout << "\n–ò–≥—Ä–∞ Hammurabi –Ω–∞—á–∞–ª–∞—Å—å!\n–≠—Ç–æ –≤–∞—à 1 –≥–æ–¥ –ø—Ä–∞–≤–ª–µ–Ω–∏—è!\n–í –≥–æ—Ä–æ–¥–µ –ø—Ä–æ–∂–∏–≤–∞–µ—Ç 100 —á–µ–ª–æ–≤–µ–∫.\n–í –∑–∞–∫—Ä–æ–º–∞—Ö –≥–æ—Ä–æ–¥–∞ 2800 –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã.\n–ì–æ—Ä–æ–¥ –∑–∞–Ω–∏–º–∞–µ—Ç 1000 –∞–∫—Ä–æ–≤ –∑–µ–º–ª–∏.\n\n\n";
 	}
 
 	for (Current_Round_Data.current_round; Current_Round_Data.current_round < number_of_rounds;)
 	{
 		Current_Round_Data.is_plague = false;
 
-		std::cout << "\n◊ÚÓ ÔÓÊÂÎ‡Â¯¸, ÔÓ‚ÂÎËÚÂÎ¸?\n";
+		std::cout << "\n–ß—Ç–æ –ø–æ–∂–µ–ª–∞–µ—à—å, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å?\n";
 		price_for_1_acre = rand() % 10 + 17;
 
 		while (true)
 		{
-			std::cout << "—ÍÓÎ¸ÍÓ ‡ÍÓ‚ ÁÂÏÎË ÔÓ‚ÂÎÂ‚‡Â¯¸ ÍÛÔËÚ¸? ";
+			std::cout << "–°–∫–æ–ª—å–∫–æ –∞–∫—Ä–æ–≤ –∑–µ–º–ª–∏ –ø–æ–≤–µ–ª–µ–≤–∞–µ—à—å –∫—É–ø–∏—Ç—å? ";
 			std::cin >> area_to_bue_by_gamer;
 
 			if (area_to_bue_by_gamer < 0 || City.wheat < area_to_bue_by_gamer * price_for_1_acre)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÚÓÎ¸ÍÓ " << City.wheat << " ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å —Ç–æ–ª—å–∫–æ " << City.wheat << " –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã!\n";
 			}
 			else
 			{
@@ -191,11 +192,11 @@ int main()
 
 		while (true)
 		{
-			std::cout << "—ÍÓÎ¸ÍÓ ‡ÍÓ‚ ÁÂÏÎË ÔÓ‚ÂÎÂ‚‡Â¯¸ ÔÓ‰‡Ú¸? ";
+			std::cout << "–°–∫–æ–ª—å–∫–æ –∞–∫—Ä–æ–≤ –∑–µ–º–ª–∏ –ø–æ–≤–µ–ª–µ–≤–∞–µ—à—å –ø—Ä–æ–¥–∞—Ç—å? ";
 			std::cin >> area_to_sell_by_gamer;
 			if (area_to_sell_by_gamer < 0 || area_to_sell_by_gamer >City.area)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÚÓÎ¸ÍÓ " << City.area << " ‡ÍÓ‚ ËÏÂÂÚÒˇ!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å —Ç–æ–ª—å–∫–æ " << City.area << " –∞–∫—Ä–æ–≤ –∏–º–µ–µ—Ç—Å—è!\n";
 			}
 			else
 			{
@@ -207,11 +208,11 @@ int main()
 
 		while (true)
 		{
-			std::cout << "—ÍÓÎ¸ÍÓ ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚ ÔÓ‚ÂÎÂ‚‡Â¯¸ Ò˙ÂÒÚ¸? ";
+			std::cout << "–°–∫–æ–ª—å–∫–æ –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã –ø–æ–≤–µ–ª–µ–≤–∞–µ—à—å —Å—ä–µ—Å—Ç—å? ";
 			std::cin >> wheat_to_eat_by_gamer;
 			if (wheat_to_eat_by_gamer < 0 || wheat_to_eat_by_gamer>City.wheat)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÓÒÚ‡ÎÓÒ¸ ÚÓÎ¸ÍÓ " << City.wheat << " ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å –æ—Å—Ç–∞–ª–æ—Å—å —Ç–æ–ª—å–∫–æ " << City.wheat << " –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã!\n";
 			}
 			else
 			{
@@ -232,12 +233,12 @@ int main()
 				break;
 			}
 		}
-		proportion_of_deads = static_cast < float>(1.0 * Current_Round_Data.number_of_dead / City.citizens);
+		proportion_of_deads = static_cast <float>(1.0 * Current_Round_Data.number_of_dead / City.citizens);
 
 		if (proportion_of_deads > 0.45)
 		{
-			std::cout << "\n\n ÓÌÂˆ Ë„˚!\n¬˚ ÌÂÍÓÏÔÂÚÂÌÚÌ˚È Ô‡‚ËÚÂÎ¸, Û ‚‡Ò ÓÚ „ÓÎÓ‰‡ ÛÏÂÎÓ ·ÓÎÂÂ 45% „‡Ê‰‡Ì. ¬˚ ÔÓË„‡ÎË! \n";
-			
+			std::cout << "\n\n–ö–æ–Ω–µ—Ü –∏–≥—Ä—ã!\n–í—ã –Ω–µ–∫–æ–º–ø–µ—Ç–µ–Ω—Ç–Ω—ã–π –ø—Ä–∞–≤–∏—Ç–µ–ª—å, —É –≤–∞—Å –æ—Ç –≥–æ–ª–æ–¥–∞ —É–º–µ—Ä–ª–æ –±–æ–ª–µ–µ 45% –≥—Ä–∞–∂–¥–∞–Ω. –í—ã –ø—Ä–æ–∏–≥—Ä–∞–ª–∏! \n";
+
 			return EXIT_SUCCESS;
 		}
 
@@ -245,20 +246,20 @@ int main()
 
 		while (true)
 		{
-			std::cout << "—ÍÓÎ¸ÍÓ ‡ÍÓ‚ ÁÂÏÎË ÔÓ‚ÂÎÂ‚‡Â¯¸ Á‡ÒÂˇÚ¸? ";
+			std::cout << "–°–∫–æ–ª—å–∫–æ –∞–∫—Ä–æ–≤ –∑–µ–º–ª–∏ –ø–æ–≤–µ–ª–µ–≤–∞–µ—à—å –∑–∞—Å–µ—è—Ç—å? ";
 			std::cin >> area_to_plant_by_gamer;
 
 			if (area_to_plant_by_gamer < 0 || area_to_plant_by_gamer>City.area)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÚÓÎ¸ÍÓ " << City.area << " ‡ÍÓ‚ ÁÂÏÎË!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å —Ç–æ–ª—å–∫–æ " << City.area << " –∞–∫—Ä–æ–≤ –∑–µ–º–ª–∏!\n";
 			}
 			else if (area_to_plant_by_gamer > City.citizens * 10)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÌÂ ı‚‡ÚËÚ ÊËÚÂÎÂÈ. ” Ì‡Ò ‚ÒÂ„Ó " << City.citizens << ", ˜ÚÓ·˚ Á‡ÒÂˇÚ¸ ÁÂÏÎË!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å –Ω–µ —Ö–≤–∞—Ç–∏—Ç –∂–∏—Ç–µ–ª–µ–π. –£ –Ω–∞—Å –≤—Å–µ–≥–æ " << City.citizens << ", —á—Ç–æ–±—ã –∑–∞—Å–µ—è—Ç—å –∑–µ–º–ª–∏!\n";
 			}
 			else if (City.wheat < area_to_plant_by_gamer * 0.5)
 			{
-				std::cout << "Œ, ÔÓ‚ÂÎËÚÂÎ¸, ÔÓ˘‡‰Ë Ì‡Ò! ” Ì‡Ò ÚÓÎ¸ÍÓ " << City.wheat << " ·Û¯ÂÎÂÈ Ô¯ÂÌËˆ˚, ˜ÚÓ·˚ Á‡ÒÂˇÚ¸ ÁÂÏÎË!\n";
+				std::cout << "–û, –ø–æ–≤–µ–ª–∏—Ç–µ–ª—å, –ø–æ—â–∞–¥–∏ –Ω–∞—Å! –£ –Ω–∞—Å —Ç–æ–ª—å–∫–æ " << City.wheat << " –±—É—à–µ–ª–µ–π –ø—à–µ–Ω–∏—Ü—ã, —á—Ç–æ–±—ã –∑–∞—Å–µ—è—Ç—å –∑–µ–º–ª–∏!\n";
 			}
 			else
 			{
@@ -269,13 +270,13 @@ int main()
 		}
 
 		Round_Calculating(City, Current_Round_Data, price_for_1_acre, quantity_of_wheat_from_1_acre, rand_for_rats, area_to_plant_by_gamer, proportion_of_deads, probability_of_plague, area_to_bue_by_gamer, wheat_to_eat_by_gamer);
-				
+
 		avg_deads = avg_deads + proportion_of_deads;
 
 		std::cout << "\n";
-		
-		std::ofstream fileout ("savegame.txt");
-		
+
+		std::ofstream fileout("savegame.txt");
+
 		if (fileout.is_open())
 		{
 			fileout << City.area << "\n" << City.citizens << "\n" << City.citizens_survived
@@ -284,37 +285,37 @@ int main()
 				<< "\n" << Current_Round_Data.number_of_newbies_in_the_city << "\n"
 				<< Current_Round_Data.total_wheat_taked << "\n" << Current_Round_Data.wheat_eated_by_rats
 				<< "\n" << price_for_1_acre << "\n" << quantity_of_wheat_from_1_acre
-				<< "\n" << avg_deads << "\n"<< rand_for_rats<<"\n";
+				<< "\n" << avg_deads << "\n" << rand_for_rats << "\n";
 
 			fileout.close();
 		}
 		else
 		{
-			std::cout << "Œ¯Ë·Í‡ Á‡ÔËÒË ‚ Ù‡ÈÎ!";
+			std::cout << "–û—à–∏–±–∫–∞ –∑–∞–ø–∏—Å–∏ –≤ —Ñ–∞–π–ª!";
 		}
-		
+
 		++Current_Round_Data.current_round;
 
 		Start_Round_Info(City, Current_Round_Data, rand_for_rats, price_for_1_acre, quantity_of_wheat_from_1_acre);
-		
+
 		while (flag_for_exitgame)
 		{
-			std::cout << "\n¬˚ ıÓÚËÚÂ ‚˚ÈÚË ËÁ Ë„˚?\n‰‡ - ‚˚ ‚˚È‰ÂÚÂ ËÁ Ë„˚, ÔË ˝ÚÓÏ ÚÂÍÛ˘ËÈ ÔÓ„ÂÒÒ ·Û‰ÂÚ ÒÓı‡ÌÂÌ\nÌÂÚ - ÔÂÂÈÚË ‚ ÒÎÂ‰Û˛˘ËÈ ‡ÛÌ‰\n";
-			std::string yes_no_2 = "ÌÂÚ";
+			std::cout << "\n–í—ã —Ö–æ—Ç–∏—Ç–µ –≤—ã–π—Ç–∏ –∏–∑ –∏–≥—Ä—ã?\n–¥–∞ - –≤—ã –≤—ã–π–¥–µ—Ç–µ –∏–∑ –∏–≥—Ä—ã, –ø—Ä–∏ —ç—Ç–æ–º —Ç–µ–∫—É—â–∏–π –ø—Ä–æ–≥—Ä–µ—Å—Å –±—É–¥–µ—Ç —Å–æ—Ö—Ä–∞–Ω–µ–Ω\n–Ω–µ—Ç - –ø–µ—Ä–µ–π—Ç–∏ –≤ —Å–ª–µ–¥—É—é—â–∏–π —Ä–∞—É–Ω–¥\n";
+			std::string yes_no_2 = "–Ω–µ—Ç";
 			std::cin >> yes_no_2;
-			if (yes_no_2 == "‰‡")
+			if (yes_no_2 == "–¥–∞")
 			{
 				save_and_exit = true;
 				flag_for_exitgame = false;
 				break;
 			}
-			else if (yes_no_2 == "ÌÂÚ")
+			else if (yes_no_2 == "–Ω–µ—Ç")
 			{
 				break;
 			}
-			else 
+			else
 			{
-				std::cout << "\n¬‚Â‰ËÚÂ ÍÓÂÍÚÌÓÂ ÁÌ‡˜ÂÌËÂ \"‰‡\" ËÎË \"ÌÂÚ\"\n";
+				std::cout << "\n–í–≤–µ–¥–∏—Ç–µ –∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ \"–¥–∞\" –∏–ª–∏ \"–Ω–µ—Ç\"\n";
 			}
 		}
 		if (!flag_for_exitgame)
@@ -325,33 +326,33 @@ int main()
 	}
 
 	while (!save_and_exit)
-	{	
+	{
 		if (!isProportionWorked)
 		{
-			float p = avg_deads / (number_of_rounds-1);//-1 because we do not have any deads in first year
+			float p = avg_deads / (number_of_rounds - 1);//-1 because we do not have any deads in first year
 			float l = static_cast<float>(1.0 * City.area / City.citizens);
 			if (p > 0.33 && l < 7)
 			{
-				std::cout << "\n»Á-Á‡ ‚‡¯ÂÈ ÌÂÍÓÏÔÂÚÂÌÚÌÓÒÚË ‚ ÛÔ‡‚ÎÂÌËË, Ì‡Ó‰ ÛÒÚÓËÎ ·ÛÌÚ, Ë ËÁ„Ì‡Î ‚‡Ò Ëı „ÓÓ‰‡. “ÂÔÂ¸ ‚˚ ‚˚ÌÛÊ‰ÂÌ˚ ‚Î‡˜ËÚ¸ Ê‡ÎÍÓÂ ÒÛ˘ÂÒÚ‚Ó‚‡ÌËÂ ‚ ËÁ„Ì‡ÌËË!\n";
+				std::cout << "\n–ò–∑-–∑–∞ –≤–∞—à–µ–π –Ω–µ–∫–æ–º–ø–µ—Ç–µ–Ω—Ç–Ω–æ—Å—Ç–∏ –≤ —É–ø—Ä–∞–≤–ª–µ–Ω–∏–∏, –Ω–∞—Ä–æ–¥ —É—Å—Ç—Ä–æ–∏–ª –±—É–Ω—Ç, –∏ –∏–∑–≥–Ω–∞–ª –≤–∞—Å –∏—Ö –≥–æ—Ä–æ–¥–∞. –¢–µ–ø–µ—Ä—å –≤—ã –≤—ã–Ω—É–∂–¥–µ–Ω—ã –≤–ª–∞—á–∏—Ç—å –∂–∞–ª–∫–æ–µ —Å—É—â–µ—Å—Ç–≤–æ–≤–∞–Ω–∏–µ –≤ –∏–∑–≥–Ω–∞–Ω–∏–∏!\n";
 				break;
 			}
 			else if (p > 0.10 && l < 9)
 			{
-				std::cout << "\n¬˚ Ô‡‚ËÎË ÊÂÎÂÁÌÓÈ ÛÍÓÈ, ÔÓ‰Ó·ÌÓ ÕÂÓÌÛ Ë »‚‡ÌÛ √ÓÁÌÓÏÛ. Õ‡Ó‰ ‚Á‰ÓıÌÛÎ Ò Ó·ÎÂ„˜ÂÌËÂÏ, Ë ÌËÍÚÓ ·ÓÎ¸¯Â ÌÂ ÊÂÎ‡ÂÚ ‚Ë‰ÂÚ¸ ‚‡Ò Ô‡‚ËÚÂÎÂÏ!\n";
+				std::cout << "\n–í—ã –ø—Ä–∞–≤–∏–ª–∏ –∂–µ–ª–µ–∑–Ω–æ–π —Ä—É–∫–æ–π, –ø–æ–¥–æ–±–Ω–æ –ù–µ—Ä–æ–Ω—É –∏ –ò–≤–∞–Ω—É –ì—Ä–æ–∑–Ω–æ–º—É. –ù–∞—Ä–æ–¥ –≤–∑–¥–æ—Ö–Ω—É–ª —Å –æ–±–ª–µ–≥—á–µ–Ω–∏–µ–º, –∏ –Ω–∏–∫—Ç–æ –±–æ–ª—å—à–µ –Ω–µ –∂–µ–ª–∞–µ—Ç –≤–∏–¥–µ—Ç—å –≤–∞—Å –ø—Ä–∞–≤–∏—Ç–µ–ª–µ–º!\n";
 				break;
 			}
 			else if (p > 0.03 && l < 10)
 			{
-				std::cout << "\n¬˚ ÒÔ‡‚ËÎËÒ¸ ‚ÔÓÎÌÂ ÌÂÔÎÓıÓ, Û ‚‡Ò, ÍÓÌÂ˜ÌÓ, ÂÒÚ¸ ÌÂ‰Ó·ÓÊÂÎ‡ÚÂÎË, ÌÓ ÏÌÓ„ËÂ ıÓÚÂÎË ·˚ Û‚Ë‰ÂÚ¸ ‚‡Ò ‚Ó „Î‡‚Â „ÓÓ‰‡ ÒÌÓ‚‡!\n";
+				std::cout << "\n–í—ã —Å–ø—Ä–∞–≤–∏–ª–∏—Å—å –≤–ø–æ–ª–Ω–µ –Ω–µ–ø–ª–æ—Ö–æ, —É –≤–∞—Å, –∫–æ–Ω–µ—á–Ω–æ, –µ—Å—Ç—å –Ω–µ–¥–æ–±—Ä–æ–∂–µ–ª–∞—Ç–µ–ª–∏, –Ω–æ –º–Ω–æ–≥–∏–µ —Ö–æ—Ç–µ–ª–∏ –±—ã —É–≤–∏–¥–µ—Ç—å –≤–∞—Å –≤–æ –≥–ª–∞–≤–µ –≥–æ—Ä–æ–¥–∞ —Å–Ω–æ–≤–∞!\n";
 				break;
 			}
 			else
 			{
-				std::cout << "\n‘‡ÌÚ‡ÒÚËÍ‡!  ‡Î ¬ÂÎËÍËÈ, ƒËÁ‡˝ÎË Ë ƒÊÂÙÙÂÒÓÌ ‚ÏÂÒÚÂ ÌÂ ÒÔ‡‚ËÎËÒ¸ ·˚ ÎÛ˜¯Â!\n";
+				std::cout << "\n–§–∞–Ω—Ç–∞—Å—Ç–∏–∫–∞! –ö–∞—Ä–ª –í–µ–ª–∏–∫–∏–π, –î–∏–∑—Ä–∞—ç–ª–∏ –∏ –î–∂–µ—Ñ—Ñ–µ—Ä—Å–æ–Ω –≤–º–µ—Å—Ç–µ –Ω–µ —Å–ø—Ä–∞–≤–∏–ª–∏—Å—å –±—ã –ª—É—á—à–µ!\n";
 				break;
 			}
+		}
 	}
-	}
-	
+
 	return EXIT_SUCCESS;
 }
