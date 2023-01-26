@@ -12,7 +12,7 @@ private:
 public:
 	Array()
 	{
-		capacity_ = 16; //Емкость по умолчанию установим 16
+		capacity_ = 16; //default capacity is 16
 		ptr_ = (T*)malloc(capacity_ * sizeof(T));
 	}
 
@@ -20,7 +20,7 @@ public:
 	{
 		if (capacity <= 0)
 		{
-			capacity_ = 16; //defoltный объем при неверном или 0 вводе капасити
+			capacity_ = 16;
 		}
 		else
 		{
@@ -31,7 +31,7 @@ public:
 
 	}
 
-	Array (Array&& other) //перемещающий конструктор
+	Array (Array&& other) //Moving constructor
 	{
 		ptr_ = other.ptr_;
 		size_ = other.size_;
@@ -42,7 +42,7 @@ public:
 		other.capacity_ = 0;
 	}
 
-	// Конструктор копирования
+	// Copy constructor
 	Array(const Array& other)
 	{
 		size_ = other.size_;
@@ -51,12 +51,12 @@ public:
 		ptr_ = (T*)malloc(other.capacity_ * sizeof(T));
 		for (int i = 0; i < other.size_; i++)
 		{			
-			new (ptr_ + i) T(other.ptr_[i]); // размещающий new чтобы вызывать копирующий конструктор
+			new (ptr_ + i) T(other.ptr_[i]); //special "Placement new" to call the copying constructor
 
 		}
 	}
 
-	// Перегрузка оператора присваивания с помощью идиомы Copy-Swap
+	// Overloading the "= operator" using the Copy-Swap idiom
 	void Swap(Array& other)
 	{
 		std::swap(ptr_, other.ptr_);
@@ -70,7 +70,7 @@ public:
 		return *this;
 	}
 
-	// Перемещающий оператор присваивания (захват r-value ref)
+	// Moving "= operator" (capture r-value ref)
 	Array& operator = (Array&& other)
 	{
 		for (int i = 0; i < size_; i++)
@@ -88,11 +88,11 @@ public:
 		other.capacity_ = 0;
 	}
 
-	int Insert(const T& value) // фактически push back
+	int Insert(const T& value) // "push back" in reality
 	{
 		//std::cout << "Insert without index: Pushback called" << std::endl;
 
-		if ((size_ + 1) > capacity_) //увеличим объем если его не хватает в 2 раза
+		if ((size_ + 1) > capacity_) //increase 2x the volume if it is not enough
 		{
 			capacity_ *= 2;
 			T* tempptr_ = (T*)malloc((capacity_) * sizeof(T));
@@ -110,37 +110,32 @@ public:
 			ptr_ = tempptr_;
 		}
 
-		new(ptr_ + size_)T(std::move(value)); //вставим новое значение в конец
+		new(ptr_ + size_)T(std::move(value)); //insert a new value AT THE END
 		++size_;
 
 		return (size_ - 1);
 	}
 
-	int Insert(int index, const T& value) // вставка в указанную позицию
+	int Insert(int index, const T& value) // insert into the specified position
 	{
 		if (index < 0 || index > size_)
 		{
-			std::cout << "Введите корректное значение индекса" << std::endl;
+			std::cout << "Re-enter the correct index value" << std::endl;
 			return -1;
 		}
 
-		//if (index == size_) // избыточный вызов
-		//{
-		//	Insert(value); // фактически вставим в конец 
-		//	return index;
-		//}
 
-		if ((size_ + 1) > capacity_) //увеличим объем если его не хватает в 2 раза
+		if ((size_ + 1) > capacity_) //increase 2x the volume if it is not enough
 		{
 			capacity_ *= 2;
 			T* tempptr_ = (T*)malloc((capacity_) * sizeof(T));
 
-			for (int i = 0; i < index; i++) // копируем первую часть
+			for (int i = 0; i < index; i++) // copy the first part
 			{
 				new (tempptr_ + i) T(std::move(ptr_[i]));
 				ptr_[i].~T();
 			}
-			for (int i = index; i < size_; i++) // копируем вторую часть
+			for (int i = index; i < size_; i++) // copy the second part
 			{
 				new(tempptr_ + i + 1) T(std::move(ptr_[i]));
 				ptr_[i].~T();
@@ -150,14 +145,14 @@ public:
 		}
 		else
 		{
-			for (int i = size_; i > index; --i) // сдвигаем вправо правую часть
+			for (int i = size_; i > index; --i) // shift the right part to the right
 			{
 				new (ptr_ + i) T(std::move(ptr_[i-1])); 
 				ptr_[i-1].~T();
 			}
 		}
 
-		new (ptr_ + index) T(std::move(value)); // вставим новый элемент
+		new (ptr_ + index) T(std::move(value)); // place the new element
 
 		++size_;
 
@@ -171,9 +166,9 @@ public:
 			return;
 		}
 
-		ptr_[index].~T(); //почистим ячейку на кот указ индекс
+		ptr_[index].~T(); //clean the cell that the index is pointing to
 
-		for (int i = index; i < size_ - 1; ++i) // сдвигаем слева правую часть
+		for (int i = index; i < size_ - 1; ++i) //shift the right part from the left
 		{
 			new (ptr_ + i) T(std::move(ptr_[i+1])); 
 			ptr_[i+1].~T();
@@ -194,51 +189,19 @@ public:
 
 	const T& operator[] (int index) const
 	{
-		return ptr_[index]; //константый возвращает i элемент
+		return ptr_[index]; //constant, returns the i element
 	}
 
 	T& operator[](int index)
 	{
-		return ptr_[index]; //возвращает i элемент
+		return ptr_[index]; //returns the i element
 	}
-
-
-	//Переделали оператор присваивания на идиому Copy-Swap, закомментим "наивную" реализацию
-
-	//Array & operator = (const Array& other)
-	//{
-	//    cout << "Вызвалась перегрузка оператора присваивания " << this << endl;
-	//    size = other.size;
-	//    if (this != &other || this->ptr!=nullptr)//защитимся от присваивания a=a; и от того что указатель без адреса
-	//    {
-	//        free(ptr);
-	//    }
-	//    else 
-	//    {
-	//        cout << "Ошибка при раобте с оператором присваивания" << endl;
-	//       // return *this; тут подумать нужен ли этот return
-	//    }
-	//    ptr = (int*)malloc(other.size * sizeof(int));
-	//    for (int i = 0; i < other.size; i++)
-	//    {
-	//        if (ptr)
-	//        {
-	//            /*ptr[i] = other.ptr[i];*/ //перепишем по другому, т.к. новый массив не размещен
-	//            new (ptr + i)T(other.ptr[i]);
-	//        }
-	//        else
-	//        {
-	//            cout << "Ошибка: попытка разыменования пустого указателя " << endl;
-	//        }
-	//    }        
-	//    return *this;
-	//}
 
 	~Array()
 	{
 		for (int i = 0; i < size_; i++)
 		{
-			ptr_[i].~T(); //вызовем деструктор для каждого элемента, чтобы ничего не потерять
+			ptr_[i].~T(); //call destructor for each element so as not to lose anything
 		}	
 
 		std::free(ptr_);
@@ -269,7 +232,7 @@ public:
 			index_ = index_ + direction_;
 		}
 
-		bool HasNext() const //фактически HasCurrent
+		bool HasNext() const //HasCurrent in reality
 		{
 			return (index_ + direction_ >= 0) && (index_ + direction_ <= array_->size_);
 		}
@@ -295,7 +258,7 @@ public:
 			index_ = index_ + direction_;
 		}
 
-		bool HasNext() const //фактически HasCurrent
+		bool HasNext() const //HasCurrent in reality
 		{
 			return (index_ + direction_ >= 0) && (index_ + direction_ <= array_->size_);
 		}

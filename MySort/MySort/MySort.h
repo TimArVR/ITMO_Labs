@@ -5,7 +5,7 @@
 
 constexpr int kThreshold = 32;
 
-//опорный элемент для QuickSort, медиана первого, среднего и последнего элемента сортируемого интервала
+//РѕРїРѕСЂРЅС‹Р№ СЌР»РµРјРµРЅС‚ РґР»СЏ QuickSort, РјРµРґРёР°РЅР° РїРµСЂРІРѕРіРѕ, СЃСЂРµРґРЅРµРіРѕ Рё РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° СЃРѕСЂС‚РёСЂСѓРµРјРѕРіРѕ РёРЅС‚РµСЂРІР°Р»Р°
 template<typename T, typename Compare>
 T PivotCalc(T* first, T* last, Compare comp)
 {
@@ -25,7 +25,7 @@ T PivotCalc(T* first, T* last, Compare comp)
 	}
 }
 
-// Сортировка вставками
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РІСЃС‚Р°РІРєР°РјРё
 template<typename T, typename Compare>
 void InsertionSort(T* first, T* last, Compare comp)
 {
@@ -44,7 +44,7 @@ void InsertionSort(T* first, T* last, Compare comp)
 	}
 }
 
-// Разбиение Хоара на две части относительно pivot
+// Р Р°Р·Р±РёРµРЅРёРµ РҐРѕР°СЂР° РЅР° РґРІРµ С‡Р°СЃС‚Рё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ pivot
 template<typename T, typename Compare>
 T* HoarePartition(T* first, T* last, Compare comp) {
 
@@ -77,7 +77,7 @@ T* HoarePartition(T* first, T* last, Compare comp) {
 	}
 }
 
-// Быстрая сортировка на основе разделения Хоара
+// Р‘С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР° РЅР° РѕСЃРЅРѕРІРµ СЂР°Р·РґРµР»РµРЅРёСЏ РҐРѕР°СЂР°
 template<typename T, typename Compare>
 void QuickSort(T* first, T* last, Compare comp)
 {
@@ -98,11 +98,11 @@ void QuickSort(T* first, T* last, Compare comp)
 	}
 }
 
-// Оптимизированная сортировка, если больше порога, то быстрая сортировка, если меньше порога - вставками.
+//  РћРїС‚РёРјРёР·РёСЂРѕРІР°РЅРЅР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°, РµСЃР»Рё Р±РѕР»СЊС€Рµ РїРѕСЂРѕРіР°, С‚Рѕ Р±С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°, РµСЃР»Рё РјРµРЅСЊС€Рµ РїРѕСЂРѕРіР° - РІСЃС‚Р°РІРєР°РјРё.
 template<typename T, typename Compare>
 void sort(T* first, T* last, Compare comp)
 {
-	while (last - first > kThreshold) // меньшую часть сортируем рекурсивно, а большую часть сортируем итеративно
+	while (last - first > kThreshold) // РјРµРЅСЊС€СѓСЋ С‡Р°СЃС‚СЊ СЃРѕСЂС‚РёСЂСѓРµРј СЂРµРєСѓСЂСЃРёРІРЅРѕ, Р° Р±РѕР»СЊС€СѓСЋ С‡Р°СЃС‚СЊ СЃРѕСЂС‚РёСЂСѓРµРј РёС‚РµСЂР°С‚РёРІРЅРѕ
 	{
 		T* pivot = HoarePartition(first, last, comp);
 
@@ -118,7 +118,7 @@ void sort(T* first, T* last, Compare comp)
 		}
 	}
 
-	InsertionSort(first, last, comp); //если меньше порога, т.к. вставка работает быстрее за счет экономии на вспомогательных действиях небольших наборов данных
+	InsertionSort(first, last, comp); //РµСЃР»Рё РјРµРЅСЊС€Рµ РїРѕСЂРѕРіР°, С‚.Рє. РІСЃС‚Р°РІРєР° СЂР°Р±РѕС‚Р°РµС‚ Р±С‹СЃС‚СЂРµРµ Р·Р° СЃС‡РµС‚ СЌРєРѕРЅРѕРјРёРё РЅР° РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹С… РґРµР№СЃС‚РІРёСЏС… РЅРµР±РѕР»СЊС€РёС… РЅР°Р±РѕСЂРѕРІ РґР°РЅРЅС‹С…
 }
 
 template<typename T>
